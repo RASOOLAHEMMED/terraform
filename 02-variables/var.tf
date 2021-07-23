@@ -33,13 +33,19 @@ output "Data-types" {
   value = "String = ${var.string} , number = ${var.numbers} , Bulean = ${var.Bulean}"
 }
 
+//Default variable type
+
 variable "Training" {
   default = "DevOps"
 }
 
+//List variable type
+
 variable "Trainings" {
   default = [ "DevOps","AWS" ]
 }
+
+// Map variable type
 
 variable "Training-Details" {
   default = {
@@ -47,6 +53,7 @@ variable "Training-Details" {
     DevOps="9AM-IST"
   }
 }
+
 
 output "Training" {
   value = var.Training
