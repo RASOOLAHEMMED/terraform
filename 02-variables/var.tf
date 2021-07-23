@@ -79,7 +79,7 @@ variable "Fruits" {}
 output "Fruits" {
   value = var.Fruits
 }
-
+// export TF_VAR_Season=Winter
 variable "Season" {}
 output "Season" {
   value = var.Season
