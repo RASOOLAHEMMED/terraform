@@ -18,14 +18,17 @@ output "sample2" {
   value = var.sample2
 }
 
-output "string" {
-  value = "Hello"
+variable "string" {
+  default = "Hello"
 }
 
-output "numbers" {
-  value = 3
+variable "numbers" {
+  default = 3
 }
 
-output "Bulean" {
-  value = true
+variable "Bulean" {
+  default = true
+}
+output "Data-types" {
+  value = "String = ${var.string} , number = ${var.numbers} , Bulean = ${var.Bulean}"
 }
