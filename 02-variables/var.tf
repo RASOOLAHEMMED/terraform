@@ -17,3 +17,15 @@ variable "sample2" {}
 output "sample2" {
   value = var.sample2
 }
+
+output "string" {
+  value = "Hello"
+}
+
+output "numbers" {
+  value = 3
+}
+
+output "Bulean" {
+  value = true
+}
