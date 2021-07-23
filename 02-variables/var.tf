@@ -32,3 +32,33 @@ variable "Bulean" {
 output "Data-types" {
   value = "String = ${var.string} , number = ${var.numbers} , Bulean = ${var.Bulean}"
 }
+
+variable "Training" {
+  default = "DevOps"
+}
+
+variable "Trainings" {
+  default = [ "DevOps","AWS" ]
+}
+
+variable "Training-Details" {
+  default = {
+    AWS="6AM-IST"
+    DevOps="9AM-IST"
+  }
+}
+
+output "Training" {
+  value = var.Training
+}
+
+output "First-training" {
+  value = var.Trainings[0]
+}
+output "Second-training" {
+  value = var.Trainings[1]
+}
+
+output "Training-Details" {
+  value = "AWS Timing is ${var.Training-Details["AWS"]}"
+}
