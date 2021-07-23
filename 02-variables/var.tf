@@ -6,6 +6,14 @@ output "sample" {
   value = var.sample
 }
 
+//variable combined with some other string then we have to use ${} called interpolation for accessing variable
+
 output "sample1" {
-  value = "${var.sample}"
+  value = "${var.sample} - from terraform"
+}
+
+variable "sample2" {}
+
+output "sample2" {
+  value = var.sample2
 }
