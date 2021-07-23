@@ -69,3 +69,13 @@ output "Second-training" {
 output "Training-Details" {
   value = "AWS Timing is ${var.Training-Details["AWS"]}"
 }
+
+// so far we have declared valie in variable block
+//now the data from different sources
+
+//variables from tfvars
+
+variable "Fruits" {}
+output "Fruits" {
+  value = var.Fruits
+}
