@@ -85,7 +85,7 @@
 //  value = var.Season
 //}
 
-variable "FRUITS" {}
+variable "Fruits" {}
 output "FRUITS" {
-  value =var.FRUITS
+  value =var.Fruits
 }
