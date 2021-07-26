@@ -14,5 +14,5 @@ variable "SG_ID" {}
 //print the privateip
 
 output "PRIVATE_IP" {
-  value =aws_instance.sample.private_ip
+  value =aws_instance.sample.*.private_ip
 }
