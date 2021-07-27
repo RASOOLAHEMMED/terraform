@@ -6,6 +6,6 @@ resource "aws_spot_instance_request" "cheap_worker" {
   wait_for_fulfillment        = true
 
   tags                        = {
-    Name                      = element(var.COMPONENTS,count.index)
+    Name                      = element(var.COMPONENTS, count.index)
   }
 }
