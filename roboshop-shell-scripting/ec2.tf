@@ -20,8 +20,19 @@ resource "aws_instance" "sample" {
   }
 }
 
+resource "aws_route53_record" "records" {
+  count                         = local.LENGTH
+  name                          = element(var.COMPONENTS, count.index )
+  type                          = "A"
+  zone_id                       = "Z00947631JDBITKOLUVH1"
+  ttl                           = 300
+  records                       = [element(aws_instance.sample.*.private_ip, count.index )]
+}
+
+
 //to connect and run the shell scripting commands
 resource "null_resource" "run-shell-scripting" {
+  depends_on                  = [aws_route53_record.records]
   count                       = local.LENGTH
   provisioner "remote-exec" {
     connection {
