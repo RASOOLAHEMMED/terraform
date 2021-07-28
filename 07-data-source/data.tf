@@ -4,11 +4,25 @@ data "aws_ami" "example" {
   owners = ["973714476881"]
 }
 
+data "aws_ec2_spot_price" "example" {
+  instance_type     = "t3.micro"
+  availability_zone = "us-east-1"
+
+  filter {
+    name   = "product-description"
+    values = ["Linux/UNIX"]
+  }
+}
+
 output "amis" {
   value = data.aws_ami.example.id
 }
-
-
+output "spot" {
+  value = data.aws_ami.example
+}
+provider "aws" {
+  region="us-east-1"
+}
 
 //
 //  filter {
