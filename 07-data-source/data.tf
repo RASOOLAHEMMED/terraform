@@ -18,25 +18,8 @@ output "amis" {
   value = data.aws_ami.example.id
 }
 output "spot" {
-  value = data.aws_ami.example
+  value = data.aws_ec2_spot_price.example
 }
 provider "aws" {
   region="us-east-1"
 }
-
-//
-//  filter {
-//    name   = "name"
-//    values = ["myami-*"]
-//  }
-//
-//  filter {
-//    name   = "root-device-type"
-//    values = ["ebs"]
-//  }
-//
-//  filter {
-//    name   = "virtualization-type"
-//    values = ["hvm"]
-//  }
-//}
