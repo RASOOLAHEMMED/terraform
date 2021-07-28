@@ -30,26 +30,26 @@ resource "aws_route53_record" "records" {
 }
 
 
-//to connect and run the shell scripting commands
-
-resource "null_resource" "run-shell-scripting" {
-  depends_on                  = [aws_route53_record.records]
-  count                       = local.LENGTH
-  provisioner "remote-exec" {
-    connection {
-      host                    = element(aws_instance.sample.*.public_ip, count.index)
-      user                    = "centos"
-      password                = "DevOps321"
-    }
-      inline                   = [
-      "cd /home/centos",
-      "git clone https://github.com/RASOOLAHEMMED/Shell-scripting_R.git",
-      "cd Shell-scripting_R/Roboshop",
-      "sudo make ${element(var.COMPONENTS, count.index)}"
-
-    ]
-  }
-}
+////to connect and run the shell scripting commands
+//
+//resource "null_resource" "run-shell-scripting" {
+//  depends_on                  = [aws_route53_record.records]
+//  count                       = local.LENGTH
+//  provisioner "remote-exec" {
+//    connection {
+//      host                    = element(aws_instance.sample.*.public_ip, count.index)
+//      user                    = "centos"
+//      password                = "DevOps321"
+//    }
+//      inline                   = [
+//      "cd /home/centos",
+//      "git clone https://github.com/RASOOLAHEMMED/Shell-scripting_R.git",
+//      "cd Shell-scripting_R/Roboshop",
+//      "sudo make ${element(var.COMPONENTS, count.index)}"
+//
+//    ]
+//  }
+//}
 
 locals {
   LENGTH                      = length(var.COMPONENTS)
