@@ -5,14 +5,14 @@ pipeline {
 
     stage('Terraform INIT') {
       steps {
-        sh 'cd  roboshop ; terraform init'
+        sh 'cd  roboshop-shell-scripting ; terraform init'
       }
     }
 
     stage('Terraform Destroy') {
       steps {
         sh '''
-          cd roboshop
+          cd roboshop-shell-scripting
           terraform destroy -auto-approve
         '''
       }
