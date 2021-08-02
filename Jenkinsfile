@@ -1,5 +1,11 @@
 pipeline {
-  agent any
+  agent {
+    node { label 'workstation'  }
+  }
+
+    parameters {
+        choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick a terraform Action')
+    }
 
   stages {
 
@@ -9,14 +15,31 @@ pipeline {
       }
     }
 
-    stage('Terraform Destroy') {
+    stage('Terraform apply') {
+
+        when {
+            environment name: 'ACTION', value: 'apply'
+        }
       steps {
         sh '''
           cd roboshop-shell-scripting
-          terraform destroy -auto-approve
+          terraform apply -auto-approve
         '''
       }
     }
+
+     stage('Terraform destroy') {
+        when {
+                    environment name: 'ACTION', value: 'destroy'
+                }
+
+          steps {
+            sh '''
+              cd roboshop-shell-scripting
+              terraform destroy -auto-approve
+            '''
+          }
+        }
 
   }
 }
