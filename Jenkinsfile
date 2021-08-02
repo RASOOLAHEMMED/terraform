@@ -3,6 +3,10 @@ pipeline {
     node { label 'workstation'  }
   }
 
+    options {
+            ansiColor('xterm')
+        }
+
     parameters {
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick a terraform Action')
     }
